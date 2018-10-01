@@ -1,18 +1,21 @@
 function coinChange(total) {
-    var dollars = ""
-    var quarters = ""
-    var dimes = ""
-    var nickels = ""
-    var pennies = ""
-    var str = ""
-    var remainder = total % 25
-    total /= Math.floor(25)
-    remainder = total % 10
-    total /= Math.floor(10)
-    remainder = total % 5
-    total /= Math.floor(5)
-    remainder = total % 1
-    total /= Math.floor(1)
-    console.log("dollars: " + dollars + "quarters: " + quarters + "dimes: " + dimes +
-     "nickels: " + nickels + "pennies: " + pennies + "}")
+    var dollars = quarters = dimes = nickels = pennies = 0
+    var str = "{"
+    dollars = Math.floor(total / 100)
+    var remainder = total % 100
+    quarters = Math.floor(remainder / 25)
+    remainder %= 25
+    dimes = Math.floor(remainder / 10)
+    remainder %= 10
+    nickels = Math.floor(remainder / 5)
+    remainder %= 5
+    pennies = remainder
+    if (dollars) str += "dollars: " + dollars + ", "
+    if (quarters) str += "quarters: " + quarters + ", "
+    if (dimes) str += "dimes: " + dimes + ", "
+    if (nickels) str += "nickels: " + nickels + ", "
+    if (pennies) str += "pennies: " + pennies + ", "
+    if (str.length > 1) str = str.substring(0,str.length-2)
+    else str += "}"
+    console.log(str)
 }

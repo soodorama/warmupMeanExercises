@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traveling</title>
+    <script>
+        var eeyore = { character: "Eeyore"}
+        var heffalumps = { character: "Heffalumps"}
+        var kanga = { character: "Kanga"}
+        var owl = { character: "Owl"}
+        var christopherRobin = { character: "Christopher Robin"}
+        var rabbit = { character: "Rabbit"}
+        var gopher = { character: "Gopher"}
+        var piglet = { character: "Piglet"}
+        var winnieThePooh = { character: "Winnie The Pooh"}
+        var bees = { character: "Bees"}
+        var tigger = { character: "Tigger"}
+
+        eeyore.east = heffalumps
+        heffalumps.west = eeyore
+        eeyore.south = kanga
+        kanga.north = eeyore
+        christopherRobin.north = kanga
+        kanga.south = christopherRobin
+        christopherRobin.west = owl
+        owl.east = christopherRobin
+        christopherRobin.east = rabbit
+        rabbit.west = christopherRobin
+        christopherRobin.south = winnieThePooh
+        winnieThePooh.north = christopherRobin
+        rabbit.east = gopher
+        gopher.west = rabbit
+        rabbit.south = bees
+        bees.north = rabbit
+        owl.south = piglet
+        piglet.north = owl
+        piglet.east = winnieThePooh
+        winnieThePooh.west = piglet
+        winnieThePooh.east = bees
+        bees.west = winnieThePooh
+        winnieThePooh.south = tigger
+        tigger.north = winnieThePooh
+
+        var player = {
+            location: tigger
+        }
+        function move(direction) {
+            if (direction == "north") {
+                if (typeof player.location.north != 'undefined') {
+                    player.location = player.location.north
+                    console.log("You are now at " + player.location.north.character + "'s house")
+                }
+                else {
+                    console.log("You may not go that way!")
+                }
+            }
+            else if (direction == "south") {
+                if (typeof player.location.south != 'undefined') {
+                    player.location = player.location.south
+                    console.log("You are now at " + player.location.south.character + "'s house")
+                }
+                else {
+                    console.log("You may not go that way!")
+                }
+            }
+            else if (direction == "east") {
+                if (typeof player.location.east != 'undefined') {
+                    player.location = player.location.east
+                    console.log("You are now at " + player.location.east.character + "'s house")
+                }
+                else {
+                    console.log("You may not go that way!")
+                }
+            }
+            else if (direction == "west") {
+                if (typeof player.location.west != 'undefined') {
+                    player.location = player.location.west
+                    console.log("You are now at " + player.location.west.character + "'s house")
+                }
+                else {
+                    console.log("You may not go that way!")
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
