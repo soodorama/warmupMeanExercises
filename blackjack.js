@@ -100,6 +100,10 @@ $(document).ready(function() {
         $("div#all_cards").html(str)
     
     })
+
+    $("#stay").click(function() {
+        $("#turn").html("<p id='turn'><b>Dealer's turn</b></p>")
+    })
     
     
 })
