@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $(".card1").click(function() {
+                $.get("https://opentdb.com/api.php?amount=1&category=22&difficulty=easy&type=multiple", displayQuestion)
+            })
+            function displayQuestion(data) {
+                $(".card1").html(data.results[0].question)
+                console.log(data)
+            }
+        })
+    </script>
+</head>
+<body>
+    <a href="">Continue with new questions</a>
+    <h1>Trivian Night</h1>
+    <h1>0 Points</h1>
+    <div class="category1">
+        <div class="card" id="first">
+            <p>100</p>
+            <input type="radio" class="first_answer">
+        </div>
+        <p class="title">Geography</p>
+        <p class="card1">100</p>
+        <p class="card1">200</p>
+        <p class="card1">300</p>
+    </div>
+    <div class="category2">
+        <p class="title">Entertainment</p>
+        <p class="card2">100</p>
+        <p class="card2">200</p>
+        <p class="card2">300</p>
+    </div>
+    <div class="category3">
+        <p class="title">Science</p>
+        <p class="card3">100</p>
+        <p class="card3">200</p>
+        <p class="card3">300</p>
+    </div>
+</body>
+</html>
