@@ -28,7 +28,14 @@ class Card {
 class Deck {
     constructor() {
         this.deck = []
-        deck.reset()
+        const suits = ["Hearts","Clubs","Diamonds","Spades"]
+        const vals = ["Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"]
+        for (var i = 0; i < suits.length; i++) {
+            for (var j = 0; j < vals.length; j++) {
+                let card = new Card(suits[i], vals[j], j+1)
+                this.deck.push(card)
+            }
+        }
     }
     shuffle() {
         for (var i = 0; i < 30; i++) {
@@ -45,15 +52,15 @@ class Deck {
         for (var i = 0; i < suits.length; i++) {
             for (var j = 0; j < vals.length; j++) {
                 let card = new Card(suits[i], vals[j], j)
-                this.deck.append(card)
+                this.deck.push(card)
             }
         }
     }
     deal() {
         let index = Math.floor(Math.random() * 52)
-        let card = deck[index]
-        deck[index] = deck[deck.length-1]
-        deck.pop()
+        let card = this.deck[index]
+        this.deck[index] = this.deck[deck.length-1]
+        this.deck.pop()
         return card
     }
 }
@@ -70,11 +77,11 @@ class Player {
         this.name = name
         this.hand = []
         for (var i = 0; i < 5; i++) {
-            this.hand.append(deck.deal())
+            this.hand.push(deck.deal())
         }
     }
     take() {
-        this.hand.append(deck.deal())
+        this.hand.push(deck.deal())
     }
     discard(pos) {
         this.hand[pos] = this.hand[this.hand.length - 1]
